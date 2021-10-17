@@ -1,3 +1,5 @@
+import time
+
 def semente():
     seed = int(input("Insira a semente: "))
 
@@ -12,16 +14,21 @@ def aleatorio(numero):
     return numero
 
 seed_number = semente()
+qtd_n = int(input("Digite a quantidade de numeros desejados: "))
 number = seed_number
 already_seen = set()
+num_ran = []
 counter = 0
 
-while number not in already_seen :
+while counter < qtd_n:
     counter += 1
     already_seen.add(number)
     number = aleatorio(number)
+    num_ran.append(number)
+    if number not in already_seen:
+        print(f"{number} repetiu")
 # zfill adds padding of zeroes
-    print ( f"#{ counter }: { number }")
+# print ( f"#{ counter }: { number }")
 
-print( f"We began with { seed_number } , and"f" have repeated ourselves after { counter } steps "f" with { number }.")
+print(f" Lista de numeros gerados: {num_ran}")
 
