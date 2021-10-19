@@ -1,5 +1,11 @@
 import time
 
+def sem_time():
+    seed = int(time.time())
+    print(f"Semente: {seed}")
+
+    return seed
+
 def semente():
     seed = int(input("Insira a semente: "))
 
@@ -25,10 +31,9 @@ while counter < qtd_n:
     already_seen.add(number)
     number = aleatorio(number)
     num_ran.append(number)
-    if number not in already_seen:
+    
+    if number in already_seen:
         print(f"{number} repetiu")
-# zfill adds padding of zeroes
-# print ( f"#{ counter }: { number }")
 
 print(f" Lista de numeros gerados: {num_ran}")
 
