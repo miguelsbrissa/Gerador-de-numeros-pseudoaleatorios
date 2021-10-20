@@ -6,6 +6,7 @@ counter = 0
 while number not in already_seen:
     counter += 1
     already_seen.add(number)
+    print((str(number * number).zfill(8))[2:6])
     number = int(str(number * number).zfill(8)[2:6])  # zfill adds padding of zeroes
     print(f"#{counter}: {number}")
 

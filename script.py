@@ -11,17 +11,17 @@ def semente():
 
     return seed
 
-def aleatorio(numero):
-    tam_numero = len(str(numero))
+def aleatorio(numero, tam_numero):
     ini = int((tam_numero/2))
     fim = int((tam_numero/2)+tam_numero)
-    numero = str( numero * numero ).zfill(2*tam_numero)[ini:fim]
-    print(f'Em string {numero}')
+    numero = str(numero * numero ).zfill(2*tam_numero)[ini:fim]
+    #print(f'Em string {numero}')
 
     return int(numero)
 
-seed_number = semente_alt()
+seed_number = semente()
 qtd_n = int(input("Digite a quantidade de numeros desejados: "))
+tam_numero = len(str(seed_number))
 number = seed_number
 already_seen = set()
 num_ran = []
@@ -32,8 +32,9 @@ while counter < qtd_n:
     #    print(f"{number} repetiu")
     #print(f'Em int {number}')
     counter += 1
+    print(counter)
     already_seen.add(number)
-    number = aleatorio(number)
+    number = aleatorio(number, tam_numero)
     num_ran.append(number)
     
     
