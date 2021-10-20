@@ -32,4 +32,4 @@ Listas com 100 numeros:
 
 1.d) Percebi que quando a semente tem muitos zeros no meio o algoritmo "quebra" e gera 0 como os numeros pseudoaleatorios.
 
-2) Ao utilizar a função time.time() você recebe um número "aleatório", porém de voce utilizar essa função diversas vezes em sequência conseguirá perceber que os números estão em sequência, isso se deve pois essa função retornar em segundos do epoch, logo não essa sequência não é exatamente aleatória, então acho que para melhorar seria necessário fazer algum tratamento nesse número retornado pela função time.time()
+2) Ao utilizar a função time.time() você recebe um número "aleatório", porém se voce utilizar essa função diversas vezes em sequência conseguirá perceber que os números estão em sequência, isso se deve pois essa função retorna em segundos o valor do epoch, logo essa sequência não é exatamente aleatória, então acho que para melhorar o algoritmo seria necessário fazer algum tratamento no número retornado pela função time.time()
