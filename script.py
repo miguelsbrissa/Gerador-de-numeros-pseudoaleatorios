@@ -32,7 +32,7 @@ while counter < qtd_n:
     #    print(f"{number} repetiu")
     #print(f'Em int {number}')
     counter += 1
-    print(counter)
+    #print(counter)
     already_seen.add(number)
     number = aleatorio(number, tam_numero)
     num_ran.append(number)
