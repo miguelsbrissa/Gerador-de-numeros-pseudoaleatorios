@@ -37,17 +37,18 @@ counter = 0
 
 while counter < qtd_n:
     if number in already_seen:
-        print(f"{number} excecao")
-        number = exc_repetiu(counter)
-        seed_list.append(number)
-    
-    if number in already_seen:
         print("Nao corrigiu")
     print(f'Em int {number}')
     counter += 1
     print(counter)
-    already_seen.add(number)
+    
     number = aleatorio(number, tam_numero)
+    if number in already_seen:
+        print(f"{number} excecao")
+        number = exc_repetiu(counter)
+        seed_list.append(number)
+        number =  aleatorio(number, len(str(int(number))))
+    already_seen.add(number)
     num_ran.append(number)
     print(f'Numero add {number}')
 
