@@ -25,6 +25,9 @@ def exc_repetiu(n):
 
     return new_seed
 
+class Repetiu_Error(Exception):
+    pass
+    
 seed_number = semente()
 seed_list = []
 seed_list.append(seed_number)
@@ -34,20 +37,23 @@ number = seed_number
 already_seen = set()
 num_ran = []
 counter = 0
-
 while counter < qtd_n:
-    if number in already_seen:
-        print("Nao corrigiu")
     print(f'Em int {number}')
     counter += 1
-    print(counter)
-    
+    print(counter) 
     number = aleatorio(number, tam_numero)
-    if number in already_seen:
-        print(f"{number} excecao")
+    
+    try:
+        if number in already_seen:
+            print(f"{number} excecao")
+            raise Repetiu_Error
+        else:
+            pass
+    except Repetiu_Error:
         number = exc_repetiu(counter)
         seed_list.append(number)
         number =  aleatorio(number, len(str(int(number))))
+        
     already_seen.add(number)
     num_ran.append(number)
     print(f'Numero add {number}')
