@@ -21,7 +21,7 @@ def aleatorio(numero, tam_numero):
     return int(numero)
 
 def exc_repetiu(n):
-    new_seed = semente_alt()/math.exp(n) + math.factorial(n)
+    new_seed = int(semente_alt() + n)
 
     return new_seed
 
@@ -34,7 +34,7 @@ seed_list.append(seed_number)
 qtd_n = int(input("Digite a quantidade de numeros desejados: "))
 tam_numero = len(str(seed_number))
 number = seed_number
-already_seen = set()
+repetidos = []
 num_ran = []
 counter = 0
 while counter < qtd_n:
@@ -42,9 +42,8 @@ while counter < qtd_n:
     counter += 1
     print(counter) 
     number = aleatorio(number, tam_numero)
-    
     try:
-        if number in already_seen:
+        if number in repetidos:
             print(f"{number} excecao")
             raise Repetiu_Error
         else:
@@ -54,7 +53,7 @@ while counter < qtd_n:
         seed_list.append(number)
         number =  aleatorio(number, len(str(int(number))))
         
-    already_seen.add(number)
+    repetidos.append(number)
     num_ran.append(number)
     print(f'Numero add {number}')
 
