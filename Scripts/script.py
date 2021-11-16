@@ -27,8 +27,10 @@ def exc_repetiu(n):
 
 class Repetiu_Error(Exception):
     pass
-    
-seed_number = semente()
+
+#semente inicial 119736    
+seed_number = 119736
+
 seed_list = []
 seed_list.append(seed_number)
 qtd_n = int(input("Digite a quantidade de numeros desejados: "))
