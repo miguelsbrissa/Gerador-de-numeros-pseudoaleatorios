@@ -1,5 +1,6 @@
 import time
 import math
+import random
 
 def semente_alt():
     seed = int(time.time())
@@ -21,15 +22,34 @@ def aleatorio(numero, tam_numero):
     return int(numero)
 
 def exc_repetiu(n):
-    new_seed = int(semente_alt() + n)
+    new_seed = int(semente_alt() * n)
 
     return new_seed
+
+def aleatfloat():
+    #x = semente_alt()
+    #e = 0.1 * (pow(10, len(str(x))))
+    #x = e/x
+    x = random.random()
+
+    return x
+
+def aleatint(sup,inf):
+    number = 0
+    
+    while number < 8 or number < inf or number > sup: 
+        dec = aleatfloat()
+        number = aleatorio(sup, len(str(sup)))
+        number = int(number * dec)
+
+    return number
+
 
 class Repetiu_Error(Exception):
     pass
 
 #semente inicial 119736    
-seed_number = 119736
+seed_number = semente()
 
 seed_list = []
 seed_list.append(seed_number)
@@ -40,13 +60,10 @@ repetidos = []
 num_ran = []
 counter = 0
 while counter < qtd_n:
-    print(f'Em int {number}')
     counter += 1
-    print(counter) 
     number = aleatorio(number, tam_numero)
     try:
         if number in repetidos:
-            print(f"{number} excecao")
             raise Repetiu_Error
         else:
             pass
@@ -58,7 +75,7 @@ while counter < qtd_n:
     repetidos.append(number)
     num_ran.append(number)
     print(f'Numero add {number}')
+    print(f"Nota gerada: {aleatint(50,10)}")
 
 print(f" Lista de numeros gerados: {num_ran}")
 print(f"Lista de seeds: {seed_list}")
-
