@@ -3,7 +3,6 @@ import time
 
 def semente_alt():
     seed = int(time.time())
-    #print(f"Semente: {seed}")
 
     return seed
 
@@ -16,7 +15,6 @@ def aleatorio(numero, tam_numero):
     ini = int((tam_numero/2))
     fim = int((tam_numero/2)+tam_numero)
     numero = str(numero * numero ).zfill(2*tam_numero)[ini:fim]
-    #print(f'Em string {numero}')
 
     return int(numero)
 
@@ -48,14 +46,10 @@ def aleatint(sup,inf, number):
 
 class Repetiu_Error(Exception):
     pass
-class Nota_Baixa(Exception):
-    pass
-
-#semente inicial 119736    
+  
 seed_number = semente()
 seed_list = []
 seed_list.append(seed_number)
-#qtd_n = int(input("Digite a quantidade de numeros desejados: "))
 tam_numero = len(str(seed_number))
 number = seed_number
 repetidos = []
@@ -86,14 +80,14 @@ while counter < 27:
         else:
             pass
     except Repetiu_Error:
-        print("!")
+        #print("!")
         number = exc_repetiu(counter)
         seed_list.append(number)
         nota_aux = aleatint(10, 0, number) * aleatfloat(number)
 
         #tratamento se a nota estiver abaixo de 8
         while counter == 22 and nota_aux < 8:
-            print('?')
+            #print('?')
             number = exc_repetiu(aux)
             nota_aux = aleatint(10, 0, number) * aleatfloat(number)
             aux += 1
@@ -101,11 +95,8 @@ while counter < 27:
         
     repetidos.append(number)
     num_ran.append(number)
-    #print(f"Nota gerada: {counter} {nota[counter]}")
     counter += 1
 
-#print(f" Lista de numeros gerados: {num_ran}")
-#print(f"Lista de seeds: {seed_list}")
 i =0
 
 #escrevento no arquivo
